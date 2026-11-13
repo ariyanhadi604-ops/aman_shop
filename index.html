@@ -1,1 +1,369 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>আমান শপ</title>
+<meta name="description" content="নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই — নিজেদের হাতে তৈরী। হোয়াটসঅ্যাপে অর্ডার করুন।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brown:#3b2314; --brown-2:#5a3620; --caramel:#b8681f; --gold:#e2a23b;
+  --cream:#fff8ec; --card:#ffffff; --line:#f0e2cc; --text:#2b1b10; --muted:#7a6552;
+  --wa:#1fa855; --wa-dark:#168a44;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Hind Siliguri',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,248,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--brown);min-width:0}
+.brand img{width:44px;height:44px;object-fit:contain;border-radius:50%}
+.brand span{font-size:1.3rem;font-weight:700;white-space:nowrap}
+.nav-wa{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:9px 16px;border-radius:999px;transition:.2s}
+.nav-wa:hover{background:var(--wa-dark)}
+.nav-wa svg{width:18px;height:18px;fill:#fff}
+
+/* Slider */
+.hero{padding:16px 0 8px}
+.slider{position:relative;overflow:hidden;border-radius:20px;box-shadow:0 10px 30px rgba(59,35,20,.18)}
+.track{display:flex;transition:transform .6s cubic-bezier(.65,0,.35,1)}
+.slide{min-width:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 56px;height:clamp(200px,38vw,380px);color:#fff;position:relative}
+.slide::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.14),transparent 45%);pointer-events:none}
+.slide:nth-child(1){background:linear-gradient(135deg,#3b2314,#8a4a1b 60%,#c8832d)}
+.slide:nth-child(2){background:linear-gradient(135deg,#5a3620,#a9611d 60%,#e2a23b)}
+.slide:nth-child(3){background:linear-gradient(135deg,#7a3d12,#c26a1c 55%,#f0b84f)}
+.slide h2{font-size:clamp(1.35rem,4.6vw,2.7rem);font-weight:700;line-height:1.4;max-width:820px;text-shadow:0 2px 10px rgba(0,0,0,.25);position:relative;z-index:1}
+.slide .cta{display:inline-block;margin-top:18px;background:#fff;color:var(--brown);font-weight:700;text-decoration:none;padding:10px 24px;border-radius:999px;font-size:1rem;position:relative;z-index:1}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.25);color:#fff;font-size:1.4rem;cursor:pointer;z-index:2;backdrop-filter:blur(4px)}
+.arrow:hover{background:rgba(255,255,255,.4)}
+.arrow.prev{left:10px}.arrow.next{right:10px}
+.dots{position:absolute;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:2}
+.dots button{width:9px;height:9px;border-radius:99px;border:0;background:rgba(255,255,255,.5);cursor:pointer;transition:.3s;padding:0}
+.dots button.active{width:26px;background:#fff}
+
+/* Products */
+.section-title{text-align:center;margin:34px 0 22px}
+.section-title h3{font-size:clamp(1.4rem,4vw,2rem);color:var(--brown);font-weight:700}
+.section-title p{color:var(--muted);margin-top:4px}
+.section-title .bar{width:60px;height:4px;background:var(--gold);border-radius:4px;margin:10px auto 0}
+.chips{flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:18px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--brown);font-family:inherit;font-size:.95rem;font-weight:500;padding:7px 18px;border-radius:999px;cursor:pointer;transition:.2s}
+.chip.active{background:var(--brown);color:#fff;border-color:var(--brown)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;padding-bottom:50px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(59,35,20,.12)}
+.thumb{position:relative;aspect-ratio:4/3;background:#f6ead6;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;background:#b3261e;color:#fff;font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:99px}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h4{font-size:1.12rem;color:var(--brown);font-weight:600;line-height:1.35}
+.card .desc{font-size:.9rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.price{font-size:1.2rem;font-weight:700;color:var(--caramel);margin-top:auto;padding-top:4px}
+.order{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;text-decoration:none;font-weight:600;font-size:.98rem;padding:11px 12px;border-radius:12px;margin-top:8px;transition:.2s}
+.order:hover{background:var(--wa-dark)}
+.order svg{width:20px;height:20px;fill:#fff;flex:none}
+.order.disabled{background:#c9bfb2;pointer-events:none}
+
+/* Skeleton / empty */
+.skel{height:330px;border-radius:18px;background:linear-gradient(90deg,#f3e6d0 25%,#fbf1df 50%,#f3e6d0 75%);background-size:200% 100%;animation:sh 1.3s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.empty{grid-column:1/-1;text-align:center;padding:50px 20px;background:#fff;border:2px dashed var(--line);border-radius:18px;color:var(--muted)}
+.empty .ic{font-size:2.6rem}
+.empty h4{color:var(--brown);margin:8px 0 4px;font-size:1.2rem}
+
+/* Features */
+.features{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+.feat b{display:block;color:var(--brown);font-size:1.02rem}
+.feat span{color:var(--muted);font-size:.88rem}
+.feat .ic{font-size:1.8rem}
+
+footer{background:var(--brown);color:#e9d8c1;text-align:center;padding:28px 16px 90px}
+footer b{color:#fff;font-size:1.15rem}
+footer a{color:var(--gold);text-decoration:none;font-weight:600}
+
+/* Floating WhatsApp */
+.float-wa{position:fixed;right:16px;bottom:16px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.float-wa svg{width:30px;height:30px;fill:#fff}
+
+@media(max-width:640px){
+  .brand span{font-size:1.12rem}
+  .nav-wa span{display:none}
+  .nav-wa{padding:10px 12px}
+  .slide{padding:0 40px}
+  .arrow{width:32px;height:32px;font-size:1.1rem}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card-body{padding:10px 11px 12px}
+  .card h4{font-size:.98rem}
+  .card .desc{display:none}
+  .price{font-size:1.05rem}
+  .order{font-size:.84rem;padding:10px 6px;gap:5px}
+  .order svg{width:17px;height:17px}
+  .feat-grid{gap:8px}
+  .feat span{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#top">
+      <img id="logo" alt="লোগো" style="display:none">
+      <span id="shopName">আমান শপ</span>
+    </a>
+    <a class="nav-wa" id="navWa" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+      <span>হোয়াটসঅ্যাপ</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="slider" id="slider">
+        <div class="track" id="track">
+          <div class="slide"><h2 id="b1">নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই।</h2></div>
+          <div class="slide"><h2 id="b2">নিজেদের হাতে তৈরী।</h2></div>
+          <div class="slide"><div><h2 id="b3">তাই দেরি না করে দ্রুত অর্ডার করুণ।</h2><a class="cta" href="#products">এখনই অর্ডার করুন</a></div></div>
+        </div>
+        <button class="arrow prev" id="prev" aria-label="আগের">‹</button>
+        <button class="arrow next" id="next" aria-label="পরের">›</button>
+        <div class="dots" id="dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="container">
+    <div class="section-title">
+      <h3>আমাদের মিঠাই</h3>
+      <p>পছন্দের মিঠাইয়ের নিচের বাটনে চাপ দিয়ে হোয়াটসঅ্যাপে অর্ডার করুন</p>
+      <div class="bar"></div>
+    </div>
+    <div class="chips" id="chips" style="display:none"></div>
+    <div class="grid" id="grid">
+      <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container feat-grid">
+      <div class="feat"><div class="ic">🌴</div><b>খাঁটি খেজুরের স্বাদ</b><span>নাটোরের ঐতিহ্যবাহী মিঠাই</span></div>
+      <div class="feat"><div class="ic">🤲</div><b>নিজেদের হাতে তৈরী</b><span>যত্ন ও ভালোবাসায়</span></div>
+      <div class="feat"><div class="ic">💬</div><b>সহজ অর্ডার</b><span>হোয়াটসঅ্যাপে মেসেজ দিন</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b id="footName">আমান শপ</b>
+  <p style="margin-top:6px">নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই</p>
+  <p style="margin-top:6px">হোয়াটসঅ্যাপ: <a id="footWa" href="#" target="_blank" rel="noopener"></a></p>
+</footer>
+
+<a class="float-wa" id="floatWa" href="#" target="_blank" rel="noopener" aria-label="হোয়াটসঅ্যাপে মেসেজ করুন">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+</a>
+
+<script>
+/* ============ কনফিগারেশন ============ */
+// Apps Script ডিপ্লয় করে যে লিংক পাবেন (…/exec) সেটা এখানে বসান
+const API_URL = "https://script.google.com/macros/s/AKfycbxvA_NDtVD9wHbd_8mCz8_bGhhpI4LxbO5Xz2wJZk-e1NzM3BoFelzcryc6z_OtT2d0/exec";
+// শীটে whatsapp সেটিং না থাকলে এই নম্বর ব্যবহার হবে (দেশের কোডসহ, + ছাড়া)
+const DEFAULT_WHATSAPP = "8801707491452";
+/* ==================================== */
+
+const CACHE_KEY = "aman_shop_cache_v1";
+const $ = (id) => document.getElementById(id);
+const waIcon = '<svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>';
+
+let waNumber = DEFAULT_WHATSAPP;
+
+function toBn(str){ return String(str).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]); }
+function safeUrl(u){ return /^https?:\/\//i.test(u || "") ? u : ""; }
+
+// Google Drive শেয়ার লিংককে ছবির লিংকে রূপান্তর
+function fixImage(u){
+  u = safeUrl(u);
+  const m = u.match(/drive\.google\.com\/file\/d\/([^/]+)/) || u.match(/drive\.google\.com\/open\?id=([^&]+)/);
+  return m ? "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w800" : u;
+}
+
+function waLink(text){
+  const num = String(waNumber).replace(/\D/g, "");
+  return "https://wa.me/" + num + (text ? "?text=" + encodeURIComponent(text) : "");
+}
+
+function orderMessage(name){
+  return "আসসালামু আলাইকুম। আমি " + name + " অর্ডার করতে চাই। কীভাবে অর্ডার কনফার্ম করব।";
+}
+
+function applySettings(s){
+  s = s || {};
+  if (s.whatsapp) waNumber = s.whatsapp;
+  if (s.shopname){
+    $("shopName").textContent = s.shopname;
+    $("footName").textContent = s.shopname;
+    document.title = s.shopname + " — নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই";
+  }
+  const logo = safeUrl(s.logourl);
+  if (logo){
+    const img = $("logo");
+    img.onerror = () => { img.style.display = "none"; };
+    img.onload = () => { img.style.display = "block"; };
+    img.src = logo;
+    const fav = document.createElement("link");
+    fav.rel = "icon"; fav.href = logo; document.head.appendChild(fav);
+  }
+  if (s.banner1) $("b1").textContent = s.banner1;
+  if (s.banner2) $("b2").textContent = s.banner2;
+  if (s.banner3) $("b3").textContent = s.banner3;
+
+  const generic = waLink("আসসালামু আলাইকুম। আমি অর্ডার করতে চাই।");
+  ["navWa","floatWa","footWa"].forEach(id => $(id).href = generic);
+  $("footWa").textContent = toBn(String(waNumber).replace(/^88/, ""));
+}
+
+function renderProducts(list){
+  const grid = $("grid");
+  grid.innerHTML = "";
+  if (!list || !list.length){
+    grid.innerHTML = '<div class="empty"><div class="ic">🍯</div><h4>বর্তমানে কোনো পণ্য নেই</h4><p>খুব শীঘ্রই নতুন মিঠাই আসছে। বিস্তারিত জানতে হোয়াটসঅ্যাপে মেসেজ দিন।</p></div>';
+    return;
+  }
+  list.forEach(p => {
+    const card = document.createElement("article");
+    card.className = "card";
+
+    const thumb = document.createElement("div");
+    thumb.className = "thumb";
+    const src = fixImage(p.image);
+    if (src){
+      const img = document.createElement("img");
+      img.loading = "lazy"; img.alt = p.name; img.referrerPolicy = "no-referrer";
+      img.onerror = () => { img.remove(); thumb.insertAdjacentHTML("afterbegin", '<div style="display:flex;height:100%;align-items:center;justify-content:center;font-size:3rem">🍯</div>'); };
+      img.src = src;
+      thumb.appendChild(img);
+    } else {
+      thumb.innerHTML = '<div style="display:flex;height:100%;align-items:center;justify-content:center;font-size:3rem">🍯</div>';
+    }
+    if (p.soldOut){
+      const b = document.createElement("span"); b.className = "badge"; b.textContent = "স্টক শেষ"; thumb.appendChild(b);
+    }
+
+    const body = document.createElement("div");
+    body.className = "card-body";
+    const h = document.createElement("h4"); h.textContent = p.name; body.appendChild(h);
+    if (p.description){ const d = document.createElement("p"); d.className = "desc"; d.textContent = p.description; body.appendChild(d); }
+    if (p.price){
+      const pr = document.createElement("div"); pr.className = "price";
+      const hasText = /[^\d০-৯.,\s]/.test(p.price);
+      pr.textContent = (hasText ? toBn(p.price) : "৳ " + toBn(p.price)) + (p.unit ? " / " + p.unit : "");
+      body.appendChild(pr);
+    }
+    const a = document.createElement("a");
+    a.className = "order" + (p.soldOut ? " disabled" : "");
+    a.target = "_blank"; a.rel = "noopener";
+    a.href = p.soldOut ? "#" : waLink(orderMessage(p.name));
+    a.innerHTML = waIcon + "<span>হোয়াটসঅ্যাপে অর্ডার করুন</span>";
+    body.appendChild(a);
+
+    card.append(thumb, body);
+    grid.appendChild(card);
+  });
+}
+
+let ALL = [], currentCat = "";
+
+function renderChips(){
+  const box = $("chips");
+  box.innerHTML = "";
+  const cats = [...new Set(ALL.map(p => p.category).filter(Boolean))];
+  if (cats.length < 2){ box.style.display = "none"; return; }
+  box.style.display = "flex";
+  ["", ...cats].forEach(c => {
+    const b = document.createElement("button");
+    b.textContent = c || "সব পণ্য";
+    b.className = "chip" + (c === currentCat ? " active" : "");
+    b.onclick = () => { currentCat = c; renderChips(); renderProducts(currentCat ? ALL.filter(p => p.category === currentCat) : ALL); };
+    box.appendChild(b);
+  });
+}
+
+function render(data){
+  applySettings(data.settings);
+  ALL = data.products || [];
+  if (currentCat && !ALL.some(p => p.category === currentCat)) currentCat = "";
+  renderChips();
+  renderProducts(currentCat ? ALL.filter(p => p.category === currentCat) : ALL);
+}
+
+async function load(){
+  // ১) আগের সেভ করা ডেটা থাকলে সাথে সাথে দেখাও (দ্রুত লোডের জন্য)
+  try{
+    const c = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
+    if (c) render(c);
+  }catch(e){}
+  applySettings({});
+  // ২) নতুন ডেটা আনো
+  if (!API_URL || API_URL.indexOf("PASTE_") === 0){
+    renderProducts([]);
+    return;
+  }
+  try{
+    const res = await fetch(API_URL, { cache: "no-store" });
+    const data = await res.json();
+    if (!data || !data.ok) throw new Error("bad data");
+    render(data);
+    try{ localStorage.setItem(CACHE_KEY, JSON.stringify(data)); }catch(e){}
+  }catch(err){
+    if (!localStorage.getItem(CACHE_KEY)){
+      $("grid").innerHTML = '<div class="empty"><div class="ic">⚠️</div><h4>তথ্য লোড করা যায়নি</h4><p>ইন্টারনেট চেক করে পেজটি রিলোড করুন।</p></div>';
+    }
+  }
+}
+
+/* ============ স্লাইডার ============ */
+(function(){
+  const track = $("track"), dotsBox = $("dots"), slider = $("slider");
+  const n = track.children.length;
+  let i = 0, timer;
+  for (let k = 0; k < n; k++){
+    const b = document.createElement("button");
+    b.setAttribute("aria-label", "স্লাইড " + (k+1));
+    b.onclick = () => go(k, true);
+    dotsBox.appendChild(b);
+  }
+  function go(k, user){
+    i = (k + n) % n;
+    track.style.transform = "translateX(" + (-100 * i) + "%)";
+    [...dotsBox.children].forEach((d, idx) => d.classList.toggle("active", idx === i));
+    if (user) restart();
+  }
+  function restart(){ clearInterval(timer); timer = setInterval(() => go(i + 1), 5000); }
+  $("prev").onclick = () => go(i - 1, true);
+  $("next").onclick = () => go(i + 1, true);
+  let x0 = null;
+  slider.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true});
+  slider.addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1), true);
+    x0 = null;
+  });
+  go(0); restart();
+})();
+
+load();
+</script>
+</body>
+</html>

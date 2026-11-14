@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -59,6 +58,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,248,236,.94);backdro
 .chip.active{background:var(--brown);color:#fff;border-color:var(--brown)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;padding-bottom:50px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card{cursor:pointer}
 .card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(59,35,20,.12)}
 .thumb{position:relative;aspect-ratio:4/3;background:#f6ead6;overflow:hidden}
 .thumb img{width:100%;height:100%;object-fit:cover}
@@ -76,15 +76,40 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,248,236,.94);backdro
 .skel{height:330px;border-radius:18px;background:linear-gradient(90deg,#f3e6d0 25%,#fbf1df 50%,#f3e6d0 75%);background-size:200% 100%;animation:sh 1.3s infinite}
 @keyframes sh{to{background-position:-200% 0}}
 .empty{grid-column:1/-1;text-align:center;padding:50px 20px;background:#fff;border:2px dashed var(--line);border-radius:18px;color:var(--muted)}
-.empty .ic{font-size:2.6rem}
+.empty .ic{width:56px;height:56px;margin:0 auto;color:#c9a97a}.empty .ic svg{width:100%;height:100%}
 .empty h4{color:var(--brown);margin:8px 0 4px;font-size:1.2rem}
+
+/* Search, details, modal */
+.search{position:relative;max-width:520px;margin:0 auto 16px}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--muted);pointer-events:none}
+.search input{width:100%;font-family:inherit;font-size:1rem;padding:12px 16px 12px 44px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--text);outline:none;transition:.2s}
+.search input:focus{border-color:var(--caramel);box-shadow:0 0 0 3px rgba(184,104,31,.15)}
+.more{font-size:.84rem;color:var(--caramel);font-weight:600}
+.ph{display:flex;height:100%;align-items:center;justify-content:center;color:#c9a97a}
+.ph svg{width:44px;height:44px}
+.modal{position:fixed;inset:0;z-index:100;background:rgba(30,16,8,.6);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)}
+.modal.open{display:flex}
+.modal-box{position:relative;background:#fff;width:100%;max-width:520px;max-height:92vh;overflow:auto;border-radius:22px;animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.modal-x{position:absolute;top:10px;right:10px;z-index:3;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--brown);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.modal-x svg{width:20px;height:20px}
+.modal-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px}
+.modal-body h3{font-size:1.4rem;color:var(--brown);line-height:1.35}
+.modal-body .price{margin-top:0;font-size:1.35rem}
+.tag{align-self:flex-start;background:#fbefd9;color:var(--caramel);font-size:.82rem;font-weight:600;padding:3px 12px;border-radius:99px}
+.mdesc{white-space:pre-line;font-size:1rem;line-height:1.7}
+.foot-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.foot-links a{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid rgba(255,255,255,.25);border-radius:999px;color:#fff;text-decoration:none;font-weight:500;transition:.2s}
+.foot-links a:hover{background:rgba(255,255,255,.1)}
+.foot-links svg{width:18px;height:18px;flex:none}
+@media(max-width:640px){.modal{align-items:flex-end;padding:0}.modal-box{border-radius:22px 22px 0 0;max-height:90vh}}
 
 /* Features */
 .features{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
 .feat b{display:block;color:var(--brown);font-size:1.02rem}
 .feat span{color:var(--muted);font-size:.88rem}
-.feat .ic{font-size:1.8rem}
+.feat .ic{width:48px;height:48px;margin:0 auto 8px;border-radius:50%;background:#fbefd9;color:var(--caramel);display:flex;align-items:center;justify-content:center}.feat .ic svg{width:24px;height:24px}
 
 footer{background:var(--brown);color:#e9d8c1;text-align:center;padding:28px 16px 90px}
 footer b{color:#fff;font-size:1.15rem}
@@ -103,7 +128,7 @@ footer a{color:var(--gold);text-decoration:none;font-weight:600}
   .grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .card-body{padding:10px 11px 12px}
   .card h4{font-size:.98rem}
-  .card .desc{display:none}
+  .card .desc{font-size:.82rem}
   .price{font-size:1.05rem}
   .order{font-size:.84rem;padding:10px 6px;gap:5px}
   .order svg{width:17px;height:17px}
@@ -149,6 +174,7 @@ footer a{color:var(--gold);text-decoration:none;font-weight:600}
       <p>পছন্দের মিঠাইয়ের নিচের বাটনে চাপ দিয়ে হোয়াটসঅ্যাপে অর্ডার করুন</p>
       <div class="bar"></div>
     </div>
+    <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="search" type="search" placeholder="মিঠাইয়ের নাম লিখে খুঁজুন…" autocomplete="off" aria-label="পণ্য খুঁজুন"></div>
     <div class="chips" id="chips" style="display:none"></div>
     <div class="grid" id="grid">
       <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
@@ -157,9 +183,9 @@ footer a{color:var(--gold);text-decoration:none;font-weight:600}
 
   <section class="features">
     <div class="container feat-grid">
-      <div class="feat"><div class="ic">🌴</div><b>খাঁটি খেজুরের স্বাদ</b><span>নাটোরের ঐতিহ্যবাহী মিঠাই</span></div>
-      <div class="feat"><div class="ic">🤲</div><b>নিজেদের হাতে তৈরী</b><span>যত্ন ও ভালোবাসায়</span></div>
-      <div class="feat"><div class="ic">💬</div><b>সহজ অর্ডার</b><span>হোয়াটসঅ্যাপে মেসেজ দিন</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div><b>খাঁটি খেজুরের স্বাদ</b><span>নাটোরের ঐতিহ্যবাহী মিঠাই</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div><b>নিজেদের হাতে তৈরী</b><span>যত্ন ও ভালোবাসায়</span></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div><b>সহজ অর্ডার</b><span>হোয়াটসঅ্যাপে মেসেজ দিন</span></div>
     </div>
   </section>
 </main>
@@ -167,8 +193,25 @@ footer a{color:var(--gold);text-decoration:none;font-weight:600}
 <footer>
   <b id="footName">আমান শপ</b>
   <p style="margin-top:6px">নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই</p>
-  <p style="margin-top:6px">হোয়াটসঅ্যাপ: <a id="footWa" href="#" target="_blank" rel="noopener"></a></p>
+  <div class="foot-links">
+    <a id="footWa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg><span>হোয়াটসঅ্যাপে মেসেজ</span></a>
+    <a id="footCall" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span id="footNum"></span></a>
+  </div>
 </footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mName">
+  <div class="modal-box">
+    <button class="modal-x" id="mClose" aria-label="বন্ধ করুন"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    <div class="thumb" id="mImg"></div>
+    <div class="modal-body">
+      <span class="tag" id="mCat"></span>
+      <h3 id="mName"></h3>
+      <div class="price" id="mPrice"></div>
+      <p class="mdesc" id="mDesc"></p>
+      <a class="order" id="mOrder" href="#" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+</div>
 
 <a class="float-wa" id="floatWa" href="#" target="_blank" rel="noopener" aria-label="হোয়াটসঅ্যাপে মেসেজ করুন">
   <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
@@ -182,7 +225,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbxvA_NDtVD9wHbd_8mCz8_b
 const DEFAULT_WHATSAPP = "8801707491452";
 /* ==================================== */
 
-const CACHE_KEY = "aman_shop_cache_v1";
+const CACHE_KEY = "aman_shop_cache_v2";
 const $ = (id) => document.getElementById(id);
 const waIcon = '<svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>';
 
@@ -229,141 +272,4 @@ function applySettings(s){
   if (s.banner3) $("b3").textContent = s.banner3;
 
   const generic = waLink("আসসালামু আলাইকুম। আমি অর্ডার করতে চাই।");
-  ["navWa","floatWa","footWa"].forEach(id => $(id).href = generic);
-  $("footWa").textContent = toBn(String(waNumber).replace(/^88/, ""));
-}
-
-function renderProducts(list){
-  const grid = $("grid");
-  grid.innerHTML = "";
-  if (!list || !list.length){
-    grid.innerHTML = '<div class="empty"><div class="ic">🍯</div><h4>বর্তমানে কোনো পণ্য নেই</h4><p>খুব শীঘ্রই নতুন মিঠাই আসছে। বিস্তারিত জানতে হোয়াটসঅ্যাপে মেসেজ দিন।</p></div>';
-    return;
-  }
-  list.forEach(p => {
-    const card = document.createElement("article");
-    card.className = "card";
-
-    const thumb = document.createElement("div");
-    thumb.className = "thumb";
-    const src = fixImage(p.image);
-    if (src){
-      const img = document.createElement("img");
-      img.loading = "lazy"; img.alt = p.name; img.referrerPolicy = "no-referrer";
-      img.onerror = () => { img.remove(); thumb.insertAdjacentHTML("afterbegin", '<div style="display:flex;height:100%;align-items:center;justify-content:center;font-size:3rem">🍯</div>'); };
-      img.src = src;
-      thumb.appendChild(img);
-    } else {
-      thumb.innerHTML = '<div style="display:flex;height:100%;align-items:center;justify-content:center;font-size:3rem">🍯</div>';
-    }
-    if (p.soldOut){
-      const b = document.createElement("span"); b.className = "badge"; b.textContent = "স্টক শেষ"; thumb.appendChild(b);
-    }
-
-    const body = document.createElement("div");
-    body.className = "card-body";
-    const h = document.createElement("h4"); h.textContent = p.name; body.appendChild(h);
-    if (p.description){ const d = document.createElement("p"); d.className = "desc"; d.textContent = p.description; body.appendChild(d); }
-    if (p.price){
-      const pr = document.createElement("div"); pr.className = "price";
-      const hasText = /[^\d০-৯.,\s]/.test(p.price);
-      pr.textContent = (hasText ? toBn(p.price) : "৳ " + toBn(p.price)) + (p.unit ? " / " + p.unit : "");
-      body.appendChild(pr);
-    }
-    const a = document.createElement("a");
-    a.className = "order" + (p.soldOut ? " disabled" : "");
-    a.target = "_blank"; a.rel = "noopener";
-    a.href = p.soldOut ? "#" : waLink(orderMessage(p.name));
-    a.innerHTML = waIcon + "<span>হোয়াটসঅ্যাপে অর্ডার করুন</span>";
-    body.appendChild(a);
-
-    card.append(thumb, body);
-    grid.appendChild(card);
-  });
-}
-
-let ALL = [], currentCat = "";
-
-function renderChips(){
-  const box = $("chips");
-  box.innerHTML = "";
-  const cats = [...new Set(ALL.map(p => p.category).filter(Boolean))];
-  if (cats.length < 2){ box.style.display = "none"; return; }
-  box.style.display = "flex";
-  ["", ...cats].forEach(c => {
-    const b = document.createElement("button");
-    b.textContent = c || "সব পণ্য";
-    b.className = "chip" + (c === currentCat ? " active" : "");
-    b.onclick = () => { currentCat = c; renderChips(); renderProducts(currentCat ? ALL.filter(p => p.category === currentCat) : ALL); };
-    box.appendChild(b);
-  });
-}
-
-function render(data){
-  applySettings(data.settings);
-  ALL = data.products || [];
-  if (currentCat && !ALL.some(p => p.category === currentCat)) currentCat = "";
-  renderChips();
-  renderProducts(currentCat ? ALL.filter(p => p.category === currentCat) : ALL);
-}
-
-async function load(){
-  // ১) আগের সেভ করা ডেটা থাকলে সাথে সাথে দেখাও (দ্রুত লোডের জন্য)
-  try{
-    const c = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
-    if (c) render(c);
-  }catch(e){}
-  applySettings({});
-  // ২) নতুন ডেটা আনো
-  if (!API_URL || API_URL.indexOf("PASTE_") === 0){
-    renderProducts([]);
-    return;
-  }
-  try{
-    const res = await fetch(API_URL, { cache: "no-store" });
-    const data = await res.json();
-    if (!data || !data.ok) throw new Error("bad data");
-    render(data);
-    try{ localStorage.setItem(CACHE_KEY, JSON.stringify(data)); }catch(e){}
-  }catch(err){
-    if (!localStorage.getItem(CACHE_KEY)){
-      $("grid").innerHTML = '<div class="empty"><div class="ic">⚠️</div><h4>তথ্য লোড করা যায়নি</h4><p>ইন্টারনেট চেক করে পেজটি রিলোড করুন।</p></div>';
-    }
-  }
-}
-
-/* ============ স্লাইডার ============ */
-(function(){
-  const track = $("track"), dotsBox = $("dots"), slider = $("slider");
-  const n = track.children.length;
-  let i = 0, timer;
-  for (let k = 0; k < n; k++){
-    const b = document.createElement("button");
-    b.setAttribute("aria-label", "স্লাইড " + (k+1));
-    b.onclick = () => go(k, true);
-    dotsBox.appendChild(b);
-  }
-  function go(k, user){
-    i = (k + n) % n;
-    track.style.transform = "translateX(" + (-100 * i) + "%)";
-    [...dotsBox.children].forEach((d, idx) => d.classList.toggle("active", idx === i));
-    if (user) restart();
-  }
-  function restart(){ clearInterval(timer); timer = setInterval(() => go(i + 1), 5000); }
-  $("prev").onclick = () => go(i - 1, true);
-  $("next").onclick = () => go(i + 1, true);
-  let x0 = null;
-  slider.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true});
-  slider.addEventListener("touchend", e => {
-    if (x0 === null) return;
-    const dx = e.changedTouches[0].clientX - x0;
-    if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1), true);
-    x0 = null;
-  });
-  go(0); restart();
-})();
-
-load();
-</script>
-</body>
-</html>
+  ["navWa

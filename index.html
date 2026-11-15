@@ -4,7 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>আমান শপ</title>
-<meta name="description" content="নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই — নিজেদের হাতে তৈরী। হোয়াটসঅ্যাপে অর্ডার করুন।">
+<meta name="description" content="নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই — নিজেদের হাতে তৈরী। হোয়াটসঅ্যাপে সহজে অর্ডার করুন।">
+<meta name="theme-color" content="#3b2314">
+<link rel="icon" type="image/png" href="https://i.postimg.cc/q7xkS8vX/Aman-Shop-Organic-Badge-Logo-1.png">
+
+<!-- লিংক শেয়ার প্রিভিউ (Facebook, Messenger, WhatsApp ইত্যাদি) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="আমান শপ">
+<meta property="og:locale" content="bn_BD">
+<meta property="og:title" content="আমান শপ | নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই">
+<meta property="og:description" content="নিজেদের হাতে তৈরী খাঁটি খেজুরের মিঠাই। হোয়াটসঅ্যাপে সহজে অর্ডার করুন।">
+<meta property="og:image" content="https://i.postimg.cc/d17HvdTZ/file-0000000000e082468d61761dd5a6e5a7.png">
+<meta property="og:image:alt" content="আমান শপ — নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="আমান শপ | নাটোরের ঐতিহ্যবাহী খেজুরের মিঠাই">
+<meta name="twitter:description" content="নিজেদের হাতে তৈরী খাঁটি খেজুরের মিঠাই। হোয়াটসঅ্যাপে সহজে অর্ডার করুন।">
+<meta name="twitter:image" content="https://i.postimg.cc/d17HvdTZ/file-0000000000e082468d61761dd5a6e5a7.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -104,6 +119,37 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,248,236,.94);backdro
 .foot-links svg{width:18px;height:18px;flex:none}
 @media(max-width:640px){.modal{align-items:flex-end;padding:0}.modal-box{border-radius:22px 22px 0 0;max-height:90vh}}
 
+/* Reviews */
+.stars{display:inline-flex;gap:2px;vertical-align:middle}
+.st{width:15px;height:15px;fill:none;stroke:#d9a441;stroke-width:1.6;stroke-linejoin:round}
+.st.on{fill:#e2a23b;stroke:#e2a23b}
+.rate{display:flex;align-items:center;gap:6px;font-size:.84rem;color:var(--muted)}
+.rev{margin-top:14px;padding-top:16px;border-top:1px solid var(--line)}
+.rev-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.rev-head h4{font-size:1.1rem;color:var(--brown)}
+.rev-none{color:var(--muted);font-size:.95rem;margin-bottom:10px}
+.rev-item{background:#fdf6e9;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.rev-item.extra{display:none}
+.rev-list.all .rev-item.extra{display:block}
+.rev-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+.rev-name{font-weight:600;color:var(--brown);font-size:.95rem}
+.rev-date{font-size:.78rem;color:var(--muted)}
+.rev-text{font-size:.95rem;line-height:1.6;white-space:pre-line;word-break:break-word}
+.rev-more{background:none;border:0;color:var(--caramel);font-family:inherit;font-weight:600;font-size:.92rem;cursor:pointer;padding:4px 0 10px}
+.rform{display:flex;flex-direction:column;gap:8px;margin-top:6px;padding:14px;border:1px dashed #e3cfa8;border-radius:14px;background:#fffdf8}
+.rform h5{font-size:1rem;color:var(--brown)}
+.rform input,.rform textarea{width:100%;font-family:inherit;font-size:1rem;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--text);outline:none;resize:vertical}
+.rform input:focus,.rform textarea:focus{border-color:var(--caramel);box-shadow:0 0 0 3px rgba(184,104,31,.15)}
+.rform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.pick{display:flex;gap:4px}
+.pick button{background:none;border:0;padding:2px;cursor:pointer;line-height:0}
+.pick .st{width:30px;height:30px}
+.submit{background:var(--brown);color:#fff;border:0;border-radius:12px;font-family:inherit;font-size:1rem;font-weight:600;padding:11px;cursor:pointer;transition:.2s}
+.submit:hover{background:var(--brown-2)}
+.submit:disabled{opacity:.6;cursor:default}
+.rmsg{font-size:.92rem;min-height:1.2em}
+.rmsg.ok{color:#1b7a3d}.rmsg.bad{color:#b3261e}
+
 /* Features */
 .features{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
@@ -171,10 +217,10 @@ footer a{color:var(--gold);text-decoration:none;font-weight:600}
   <section id="products" class="container">
     <div class="section-title">
       <h3>আমাদের মিঠাই</h3>
-      <p>পছন্দের পণ্যের নিচের বাটনে চাপ দিয়ে হোয়াটসঅ্যাপে অর্ডার করুন</p>
+      <p>পছন্দের মিঠাইয়ের নিচের বাটনে চাপ দিয়ে হোয়াটসঅ্যাপে অর্ডার করুন</p>
       <div class="bar"></div>
     </div>
-    <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="search" type="search" placeholder="পণ্যের নাম লিখে খুঁজুন…" autocomplete="off" aria-label="পণ্য খুঁজুন"></div>
+    <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="search" type="search" placeholder="মিঠাইয়ের নাম লিখে খুঁজুন…" autocomplete="off" aria-label="পণ্য খুঁজুন"></div>
     <div class="chips" id="chips" style="display:none"></div>
     <div class="grid" id="grid">
       <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
@@ -209,6 +255,7 @@ footer a{color:var(--gold);text-decoration:none;font-weight:600}
       <div class="price" id="mPrice"></div>
       <p class="mdesc" id="mDesc"></p>
       <a class="order" id="mOrder" href="#" target="_blank" rel="noopener"></a>
+      <div class="rev" id="mRev"></div>
     </div>
   </div>
 </div>
@@ -291,7 +338,7 @@ const P = {
 };
 const svg = k => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + P[k] + '</svg>';
 
-let ALL = [], currentCat = "", query = "";
+let ALL = [], REVIEWS = [], currentCat = "", query = "";
 
 function placeholder(){ const d = document.createElement("div"); d.className = "ph"; d.innerHTML = svg("img"); return d; }
 
@@ -356,6 +403,7 @@ function renderProducts(list){
     const body = document.createElement("div");
     body.className = "card-body";
     const h = document.createElement("h4"); h.textContent = p.name; body.appendChild(h);
+    const rs = reviewStats(p.id); if (rs.count) body.appendChild(rateLine(rs));
     if (p.description){ const d = document.createElement("p"); d.className = "desc"; d.textContent = p.description; body.appendChild(d); }
     const more = document.createElement("span"); more.className = "more"; more.textContent = "বিস্তারিত দেখুন ›"; body.appendChild(more);
     const pt = priceText(p);
@@ -392,6 +440,138 @@ function renderChips(){
   });
 }
 
+/* ============ রিভিউ ============ */
+const STAR_PTS = "12,2.8 14.9,8.9 21.5,9.7 16.6,14.3 17.9,20.9 12,17.6 6.1,20.9 7.4,14.3 2.5,9.7 9.1,8.9";
+function starSvg(on){ return '<svg class="st' + (on ? ' on' : '') + '" viewBox="0 0 24 24" aria-hidden="true"><polygon points="' + STAR_PTS + '"/></svg>'; }
+function starsEl(n){
+  const s = document.createElement("span"); s.className = "stars";
+  let h = ""; for (let i = 1; i <= 5; i++) h += starSvg(i <= n);
+  s.innerHTML = h; s.setAttribute("role", "img"); s.setAttribute("aria-label", toBn(n) + " তারা");
+  return s;
+}
+function reviewsOf(pid){ return pid ? REVIEWS.filter(r => r.pid === pid) : []; }
+function reviewStats(pid){
+  const l = reviewsOf(pid), c = l.length;
+  return { count: c, avg: c ? l.reduce((a, r) => a + Number(r.rating || 0), 0) / c : 0 };
+}
+function rateLine(rs){
+  const d = document.createElement("div"); d.className = "rate";
+  d.appendChild(starsEl(Math.round(rs.avg)));
+  const t = document.createElement("span");
+  t.textContent = toBn(rs.avg.toFixed(1)) + " (" + toBn(rs.count) + ")";
+  d.appendChild(t);
+  return d;
+}
+
+function deviceId(){
+  try{
+    let d = localStorage.getItem("aman_dev");
+    if (!d){ d = Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem("aman_dev", d); }
+    return d;
+  }catch(e){
+    return window.__dev || (window.__dev = Math.random().toString(36).slice(2) + Date.now().toString(36));
+  }
+}
+
+function renderReviews(p, note){
+  const box = $("mRev");
+  box.innerHTML = "";
+  if (!p.id){ box.style.display = "none"; return; }
+  box.style.display = "block";
+  const list = reviewsOf(p.id), rs = reviewStats(p.id);
+
+  const head = document.createElement("div"); head.className = "rev-head";
+  const t = document.createElement("h4"); t.textContent = "ক্রেতাদের রিভিউ"; head.appendChild(t);
+  if (rs.count) head.appendChild(rateLine(rs));
+  box.appendChild(head);
+
+  if (!list.length){
+    const e = document.createElement("p"); e.className = "rev-none";
+    e.textContent = "এখনও কোনো রিভিউ নেই। প্রথম রিভিউটি আপনিই দিন।";
+    box.appendChild(e);
+  }
+  const wrap = document.createElement("div"); wrap.className = "rev-list";
+  list.forEach((r, i) => {
+    const it = document.createElement("div"); it.className = "rev-item" + (i >= 3 ? " extra" : "");
+    const top = document.createElement("div"); top.className = "rev-top";
+    const nm = document.createElement("span"); nm.className = "rev-name"; nm.textContent = r.name;
+    top.appendChild(nm); top.appendChild(starsEl(Number(r.rating)));
+    it.appendChild(top);
+    if (r.date){ const dt = document.createElement("div"); dt.className = "rev-date"; dt.textContent = toBn(r.date); it.appendChild(dt); }
+    const tx = document.createElement("p"); tx.className = "rev-text"; tx.textContent = r.text;
+    it.appendChild(tx);
+    wrap.appendChild(it);
+  });
+  box.appendChild(wrap);
+  if (list.length > 3){
+    const m = document.createElement("button"); m.type = "button"; m.className = "rev-more";
+    m.textContent = "সব রিভিউ দেখুন (" + toBn(list.length) + ")";
+    m.onclick = () => { wrap.classList.add("all"); m.remove(); };
+    box.appendChild(m);
+  }
+  const form = reviewForm(p);
+  box.appendChild(form);
+  if (note){ const m = form.querySelector(".rmsg"); m.textContent = note; m.className = "rmsg ok"; }
+}
+
+function reviewForm(p){
+  const f = document.createElement("form");
+  f.className = "rform"; f.noValidate = true;
+  f.innerHTML = '<h5>আপনার রিভিউ লিখুন</h5><div class="pick" role="group" aria-label="তারা দিন"></div>' +
+    '<input class="f-name" type="text" maxlength="40" placeholder="আপনার নাম" autocomplete="name">' +
+    '<textarea class="f-text" rows="3" maxlength="500" placeholder="পণ্যটি কেমন লেগেছে লিখুন…"></textarea>' +
+    '<input class="hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+    '<button type="submit" class="submit">রিভিউ জমা দিন</button><p class="rmsg" role="status"></p>';
+  let rating = 0;
+  const btns = [], pick = f.querySelector(".pick"), msg = f.querySelector(".rmsg");
+  const paint = () => btns.forEach((b, i) => b.firstChild.classList.toggle("on", i < rating));
+  for (let i = 1; i <= 5; i++){
+    const b = document.createElement("button"); b.type = "button";
+    b.setAttribute("aria-label", toBn(i) + " তারা"); b.innerHTML = starSvg(false);
+    b.onclick = () => { rating = i; paint(); };
+    pick.appendChild(b); btns.push(b);
+  }
+  const say = (t, ok) => { msg.textContent = t; msg.className = "rmsg " + (ok ? "ok" : "bad"); };
+
+  f.addEventListener("submit", async e => {
+    e.preventDefault();
+    const name = f.querySelector(".f-name").value.trim();
+    const text = f.querySelector(".f-text").value.trim();
+    const hp = f.querySelector(".hp").value;
+    if (!rating) return say("তারা বেছে নিন।");
+    if (name.length < 2) return say("আপনার নাম লিখুন।");
+    if (text.length < 5) return say("রিভিউ কমপক্ষে ৫ অক্ষর লিখুন।");
+    if (/https?:|www\.|\.com\b/i.test(name + " " + text)) return say("রিভিউতে লিংক দেওয়া যাবে না।");
+    if (!API_URL || API_URL.indexOf("PASTE_") === 0) return say("এখন রিভিউ জমা নেওয়া যাচ্ছে না।");
+
+    const btn = f.querySelector(".submit");
+    btn.disabled = true; btn.textContent = "পাঠানো হচ্ছে…"; say("", true);
+    try{
+      const ctl = new AbortController();
+      const tm = setTimeout(() => ctl.abort(), 30000);
+      const res = await fetch(API_URL, { method: "POST", body: JSON.stringify({ pid: p.id, name, rating, text, hp, dev: deviceId() }), signal: ctl.signal });
+      clearTimeout(tm);
+      const out = await res.json();
+      if (out && out.ok){
+        if (out.status === "published"){
+          REVIEWS.unshift({ pid: p.id, name, rating, text, date: out.date || "" });
+          refresh();
+          renderReviews(p, "ধন্যবাদ! আপনার রিভিউ প্রকাশিত হয়েছে।");
+        } else {
+          f.reset(); rating = 0; paint();
+          say("ধন্যবাদ! আপনার রিভিউ যাচাইয়ের পর সাইটে দেখানো হবে।", true);
+        }
+      } else {
+        say((out && out.error) || "জমা দেওয়া যায়নি। আবার চেষ্টা করুন।", false);
+      }
+    }catch(err){
+      say("জমা দেওয়া যায়নি। ইন্টারনেট চেক করে আবার চেষ্টা করুন।", false);
+    }
+    btn.disabled = false; btn.textContent = "রিভিউ জমা দিন";
+  });
+  return f;
+}
+
 /* ============ বিস্তারিত পপআপ ============ */
 function openModal(p){
   fillThumb($("mImg"), p, 900);
@@ -401,6 +581,7 @@ function openModal(p){
   $("mPrice").textContent = priceText(p);
   $("mDesc").textContent = p.description || "এই পণ্যের বিস্তারিত বিবরণ শীঘ্রই যোগ করা হবে।";
   setOrder($("mOrder"), p);
+  renderReviews(p);
   $("modal").classList.add("open");
   document.body.style.overflow = "hidden";
   $("mClose").focus();
@@ -417,6 +598,7 @@ $("search").addEventListener("input", e => { query = e.target.value; refresh(); 
 function render(data){
   applySettings(data.settings);
   ALL = data.products || [];
+  REVIEWS = data.reviews || [];
   if (currentCat && !ALL.some(p => p.category === currentCat)) currentCat = "";
   renderChips();
   refresh();
